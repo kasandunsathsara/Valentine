@@ -1,0 +1,169 @@
+:root {
+    --bg-color: #050505;
+    --neon-pink: #ff007f;
+    --neon-blue: #00f3ff;
+    --neon-purple: #b500ff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    color: #fff;
+}
+
+.container {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    transition: opacity 0.5s ease;
+}
+
+.active {
+    opacity: 1;
+    pointer-events: all;
+    z-index: 10;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 4.5rem;
+    margin-bottom: 60px;
+    padding: 0 20px;
+}
+
+/* Neon Text Effect */
+.neon-text {
+    color: #fff;
+    text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px var(--neon-pink),
+        0 0 40px var(--neon-pink),
+        0 0 80px var(--neon-pink),
+        0 0 120px var(--neon-pink);
+    animation: pulsate 1.5s infinite alternate;
+}
+
+.neon-text.success {
+    text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px var(--neon-blue),
+        0 0 40px var(--neon-blue),
+        0 0 80px var(--neon-blue),
+        0 0 120px var(--neon-blue);
+}
+
+@keyframes pulsate {
+    100% {
+        text-shadow:
+            0 0 4px #fff,
+            0 0 11px #fff,
+            0 0 19px var(--neon-pink),
+            0 0 40px var(--neon-pink),
+            0 0 80px var(--neon-pink),
+            0 0 100px var(--neon-pink);
+    }
+
+    0% {
+        text-shadow:
+            0 0 2px #fff,
+            0 0 4px #fff,
+            0 0 6px var(--neon-pink),
+            0 0 10px var(--neon-pink),
+            0 0 45px var(--neon-pink),
+            0 0 55px var(--neon-pink);
+    }
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    position: relative;
+    height: 60px;
+}
+
+/* Glowing Buttons */
+.neon-btn {
+    background: transparent;
+    border: 2px solid;
+    padding: 15px 50px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.yes {
+    color: var(--neon-blue);
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 10px var(--neon-blue), inset 0 0 10px var(--neon-blue);
+    text-shadow: 0 0 5px var(--neon-blue);
+    z-index: 2;
+}
+
+.yes:hover {
+    background: var(--neon-blue);
+    color: var(--bg-color);
+    box-shadow: 0 0 25px var(--neon-blue), inset 0 0 20px var(--neon-blue);
+    text-shadow: none;
+    transform: scale(1.1);
+}
+
+.no {
+    color: var(--neon-pink);
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 10px var(--neon-pink), inset 0 0 10px var(--neon-pink);
+    text-shadow: 0 0 5px var(--neon-pink);
+    z-index: 2;
+}
+
+.no:hover {
+    background: var(--neon-pink);
+    color: var(--bg-color);
+    box-shadow: 0 0 25px var(--neon-pink), inset 0 0 20px var(--neon-pink);
+    text-shadow: none;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    .neon-btn {
+        padding: 12px 35px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .neon-btn {
+        padding: 10px 25px;
+        font-size: 1rem;
+    }
+}
